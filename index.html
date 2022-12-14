@@ -11,8 +11,17 @@
     <div class="container">
       <div class="shortening_list_container">
         <div class="shortening_list"></div>
-        <div class="add_shortening">
-          <button class="add_shortening_button">Add Shortening</button>
+        <div class="input_shortening">
+          <form action="">
+            <input
+              type="time"
+              class="input_shortening_time"
+              style="position: relative"
+            /><br />
+            <button class="shortening_button" style="position: relative">
+              Add Shortening
+            </button>
+          </form>
         </div>
       </div>
       <div class="shortening_div">
@@ -21,30 +30,20 @@
       </div>
       <div class="workingout_list_container">
         <div class="workingout_list"></div>
-        <div class="add_workingout">
-          <button class="add_workingout_button">Add Workingout</button>
+        <div class="input_workingout">
+          <form action="">
+            <input
+              type="time"
+              class="input_workingout_time"
+              style="position: relative"
+            /><br />
+            <button class="workingout_button" style="position: relative">
+              Add Workingout
+            </button>
+          </form>
         </div>
       </div>
     </div>
-    <!-- ===============   MODAL WINDOW   ============== -->
-    <div class="modal hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Open your bank account <br />
-        in just <span class="highlight">5 minutes</span>
-      </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
-    </div>
-    <div class="overlay hidden"></div>
-    <!-- ===============      END OF MODAL      ============== -->
     <script src="script.js"></script>
   </body>
 </html>

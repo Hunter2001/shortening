@@ -3,12 +3,12 @@
 const totalShorteningLabel = document.querySelector('.total_shortening');
 const shorteningList = document.querySelector('.shortening_list');
 const workingoutList = document.querySelector('.workingout_list');
-// MODAL
-const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.btn--close-modal');
-const btnAddShortening = document.querySelectorAll('.add_shortening_button');
-//
+// Buttons
+const btnShortening = document.querySelector('.shortening_button');
+const btnWorkingout = document.querySelector('.workingout_button');
+// Inputs
+const inputShortening = document.querySelector('.input_shortening_time');
+const inputWorkingout = document.querySelector('.input_workingout_time');
 //========= data ==========
 const shortenings = [
   '13 h 45 m',
@@ -40,29 +40,10 @@ const reduceAll = function (arr) {
     .reduce((acc, cur) => acc + cur, 0);
 };
 
-const totalShortening = reduceAll(shortenings);
-console.log(
-  `Total Shortening: ${Math.trunc(totalShortening / 60)} hours ${
-    totalShortening % 60
-  } minutes`
-);
-
-const totalWorkingOut = reduceAll(workingOut);
-console.log(
-  `Total Working Out: ${Math.trunc(totalWorkingOut / 60)} hours ${
-    totalWorkingOut % 60
-  } minutes`
-);
-
-const shorteningsRemain = totalShortening - totalWorkingOut;
-
-totalShorteningLabel.textContent = `${Math.trunc(
-  shorteningsRemain / 60
-)} hours ${shorteningsRemain % 60} minutes`;
-// console.log('13 h 45 m'.split('h'));
-
 // ========  UPDATE UI  ===========
 const updateUI = function () {
+  shorteningList.innerHTML = '';
+  workingoutList.innerHTML = '';
   // ======= fill in the shortening list row ========
   shortenings.forEach((cur, i) => {
     const html = `
@@ -81,8 +62,47 @@ const updateUI = function () {
         </div>
         `;
     workingoutList.insertAdjacentHTML('afterbegin', html);
-    console.log(cur);
   });
+  // ================== do the math ======================
+  const shorteningsRemain = reduceAll(shortenings) - reduceAll(workingOut);
+  totalShorteningLabel.textContent = `${Math.trunc(
+    shorteningsRemain / 60
+  )} hours ${shorteningsRemain % 60} minutes`;
+  // ====================  console log  =================
+  // console.clear();
+  console.log(
+    `Total Shortening: ${Math.trunc(reduceAll(shortenings) / 60)} hours ${
+      reduceAll(shortenings) % 60
+    } minutes`
+  );
+
+  console.log(
+    `Total Working Out: ${Math.trunc(reduceAll(workingOut) / 60)} hours ${
+      reduceAll(workingOut) % 60
+    } minutes`
+  );
 };
 
 updateUI();
+
+// ================   Apply add functionality   ===============
+//=======  add function  =======
+const addValues = function (arr, time) {
+  console.log(time);
+  // no values
+  if (time == '') return alert("You didn't select the time");
+  console.log('add values function executed');
+  updateUI();
+};
+
+btnShortening.addEventListener('click', e => {
+  e.preventDefault();
+  addValues(shortenings, inputShortening.value);
+});
+
+btnWorkingout.addEventListener('click', e => {
+  e.preventDefault();
+  addValues(shortenings, inputShortening.value);
+});
+
+// =============================================================

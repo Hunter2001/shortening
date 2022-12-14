@@ -136,44 +136,40 @@ td {
   top: 0%;
 }
 
-.add_shortening {
+.input_shortening {
   position: absolute;
+  top: 88%;
   left: 25%;
-  top: 90%;
 }
 
-.add_workingout {
+.input_workingout {
   position: absolute;
-  right: 30%;
-  top: 90%;
+  top: 88%;
+  right: 20%;
 }
 
-.hidden {
-  visibility: hidden;
-  opacity: 0;
+.input_shortening input {
+  position: absolute;
+  top: 88%;
+  left: 22%;
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 60rem;
-  background-color: #f3f3f3;
-  padding: 5rem 6rem;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: all 0.5s;
+.input_workingout input {
+  position: absolute;
+  top: 88%;
+  right: 3.5%;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 100;
-  transition: all 0.5s;
+.input_shortening button {
+  margin-top: 4%;
+  position: absolute;
+  top: 88%;
+  left: 5%;
+}
+
+.input_workingout button {
+  margin-top: 4%;
+  position: absolute;
+  top: 88%;
+  right: 20%;
 }
