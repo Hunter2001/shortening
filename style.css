@@ -138,13 +138,13 @@ td {
 
 .input_shortening {
   position: absolute;
-  top: 88%;
+  top: 100%;
   left: 25%;
 }
 
 .input_workingout {
   position: absolute;
-  top: 88%;
+  top: 100%;
   right: 20%;
 }
 
@@ -172,4 +172,18 @@ td {
   position: absolute;
   top: 88%;
   right: 20%;
+}
+
+.remove_button_shortening {
+  position: absolute;
+  color: red;
+  top: 90%;
+  left: 30%;
+}
+
+.remove_button_workingout {
+  position: absolute;
+  color: red;
+  top: 90%;
+  right: 31%;
 }

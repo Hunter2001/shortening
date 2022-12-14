@@ -6,6 +6,8 @@ const workingoutList = document.querySelector('.workingout_list');
 // Buttons
 const btnShortening = document.querySelector('.shortening_button');
 const btnWorkingout = document.querySelector('.workingout_button');
+const btnRemoveShortening = document.querySelector('.remove_button_shortening');
+const btnRemoveWorkingout = document.querySelector('.remove_button_workingout');
 // Inputs
 const inputShortening = document.querySelector('.input_shortening_time');
 const inputWorkingout = document.querySelector('.input_workingout_time');
@@ -88,12 +90,23 @@ updateUI();
 // ================   Apply add functionality   ===============
 //=======  add function  =======
 const addValues = function (arr, time) {
-  console.log(time);
   // no values
   if (time == '') return alert("You didn't select the time");
-  console.log('add values function executed');
+  //
+  const timeModified = time.replace(':', ' h ').padEnd(9, ' m');
+  console.log(timeModified);
+  arr.push(timeModified);
+  // update ui
+  updateUI();
+  //
+};
+
+// ========== remove function ===========
+const removeValues = function (arr) {
+  arr.pop();
   updateUI();
 };
+//
 
 btnShortening.addEventListener('click', e => {
   e.preventDefault();
@@ -102,7 +115,18 @@ btnShortening.addEventListener('click', e => {
 
 btnWorkingout.addEventListener('click', e => {
   e.preventDefault();
-  addValues(shortenings, inputShortening.value);
+  addValues(workingOut, inputWorkingout.value);
 });
 
-// =============================================================
+btnRemoveShortening.addEventListener('click', e => {
+  e.preventDefault();
+  removeValues(shortenings);
+});
+
+btnRemoveWorkingout.addEventListener('click', e => {
+  e.preventDefault();
+  removeValues(workingOut);
+});
+
+// ==========================  Apply remove functionality  ===========================
+//
